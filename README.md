@@ -1,4 +1,4 @@
-# notif-center (Rust + Slint)
+# dunst-notification-center (Rust + Slint)
 
 Notification center application for smplOS.
 

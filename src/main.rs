@@ -75,7 +75,7 @@ fn refresh_model(
 fn main() -> Result<(), slint::PlatformError> {
     for arg in std::env::args() {
         if arg == "-v" || arg == "--version" {
-            println!("notif-center v{}", env!("CARGO_PKG_VERSION"));
+            println!("dunst-notification-center v{}", env!("CARGO_PKG_VERSION"));
             return Ok(());
         }
     }
@@ -87,7 +87,7 @@ fn main() -> Result<(), slint::PlatformError> {
             use i_slint_backend_winit::winit::platform::wayland::WindowAttributesExtWayland;
             use i_slint_backend_winit::winit::dpi::LogicalSize;
             attrs
-                .with_name("notif-center", "notif-center")
+                .with_name("dunst-notification-center", "dunst-notification-center")
                 .with_decorations(false)
                 .with_inner_size(LogicalSize::new(384.0_f64, 520.0))
         })

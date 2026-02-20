@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# notif-center build helper for Arch Linux
+# dunst-notification-center build helper for Arch Linux
 # - Installs required system packages
 # - Builds release binary
 # - Optionally installs to /usr/local/bin
@@ -58,10 +58,10 @@ install_missing_pkgs "build dependencies" "${ARCH_PKGS[@]}"
 
 install_missing_pkgs "runtime dependencies" "${RUNTIME_PKGS[@]}"
 
-echo "==> Building notif-center (release)..."
+echo "==> Building dunst-notification-center (release)..."
 cargo build --release
 
-BIN_PATH="$SCRIPT_DIR/target/release/notif-center"
+BIN_PATH="$SCRIPT_DIR/target/release/dunst-notification-center"
 if [[ ! -x "$BIN_PATH" ]]; then
   echo "Error: build finished but binary not found at $BIN_PATH" >&2
   exit 1
@@ -71,11 +71,11 @@ echo "==> Build complete: $BIN_PATH"
 
 action="${1:-}"
 if [[ "$action" == "--install" ]]; then
-  echo "==> Installing to /usr/local/bin/notif-center"
-  sudo install -Dm755 "$BIN_PATH" /usr/local/bin/notif-center
-  echo "Installed: /usr/local/bin/notif-center"
+  echo "==> Installing to /usr/local/bin/dunst-notification-center"
+  sudo install -Dm755 "$BIN_PATH" /usr/local/bin/dunst-notification-center
+  echo "Installed: /usr/local/bin/dunst-notification-center"
 elif [[ "$action" == "--run" ]]; then
-  echo "==> Running notif-center"
+  echo "==> Running dunst-notification-center"
   exec "$BIN_PATH"
 else
   echo "Tip: run './build.sh --install' to install globally, or './build.sh --run' to launch."

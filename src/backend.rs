@@ -17,7 +17,7 @@ pub struct Notification {
 
 /// Map well-known notification summaries to shell commands.
 /// These are notifications sent by smplOS scripts (first-run, etc.)
-/// that should be actionable from the notif-center even though
+/// that should be actionable from the dunst-notification-center even though
 /// dunst history doesn't preserve the original dunst action.
 fn action_for_notification(appname: &str, summary: &str, body: &str) -> String {
     debug_log(&format!(
@@ -52,7 +52,7 @@ fn debug_log(msg: &str) {
     let ts = chrono::Local::now().format("%F %T%.3f");
     let line = format!("{ts} {msg}\n");
     // Write to ~/.cache only (no /mnt host-share logging)
-    let cache_path = format!("{cache}/smplos/notif-center-debug.log");
+    let cache_path = format!("{cache}/smplos/dunst-notification-center-debug.log");
     let _ = std::fs::OpenOptions::new().create(true).append(true).open(&cache_path)
         .map(|mut f| std::io::Write::write_all(&mut f, line.as_bytes()));
 }
@@ -138,7 +138,7 @@ fn open_webapp_log() -> bool {
     debug_log(&format!("open_webapp_log: log_path={log_path:?} exists={log_exists}"));
 
     // Kill orphaned terminal windows before opening a new one.
-    // Previous spawns may have left invisible st-wl windows on top of notif-center.
+    // Previous spawns may have left invisible st-wl windows on top of dunst-notification-center.
     let _ = Command::new("pkill").args(["-x", "st-wl"]).output();
     debug_log("open_webapp_log: pkill st-wl done");
 

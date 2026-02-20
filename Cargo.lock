@@ -993,6 +993,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "dunst-notification-center"
+version = "1.0.0"
+dependencies = [
+ "chrono",
+ "i-slint-backend-winit",
+ "serde_json",
+ "slint",
+ "slint-build",
+]
+
+[[package]]
 name = "either"
 version = "1.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2602,17 +2613,6 @@ name = "noop_proc_macro"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0676bb32a98c1a483ce53e500a81ad9c3d5b3f7c920c28c24e9cb0980d0b5bc8"
-
-[[package]]
-name = "notif-center"
-version = "1.0.0"
-dependencies = [
- "chrono",
- "i-slint-backend-winit",
- "serde_json",
- "slint",
- "slint-build",
-]
 
 [[package]]
 name = "num-bigint"
